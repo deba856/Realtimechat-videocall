@@ -5,18 +5,18 @@ import {
   getRecommendedUsers,
   getUserFriends,
   sendFriendRequest,
-} from "../lib/api";
+} from "../lib/api.js";
 import { Link } from "react-router";
 import { CheckCircleIcon, MapPinIcon, UserPlusIcon, UsersIcon } from "lucide-react";
 
-import { capitialize } from "../lib/utils";
+import { capitialize } from "../lib/utils.js";
 import FriendCard, { getLanguageFlag } from "../components/FriendCard";
 import NoFriendsFound from "../components/NoFriendsFound";
 
 const HomePage = () => {
   const queryClient = useQueryClient();
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
-  const [loadingUserId, setLoadingUserId] = useState(null); // ✅ Local loading per user
+  const [loadingUserId, setLoadingUserId] = useState(null); 
 
   // 🧠 Fetch friends
   const { data: friends = [], isLoading: loadingFriends } = useQuery({
